@@ -7,24 +7,21 @@ public class Enemy : MonoBehaviour
 {
     private Health _health;
     private Animator _animator;
-    
-    [Header("Drop")]
-    public GameObject dropItem;
-    public float dropChance = 0.9f;
+
+    [Header("Drop")] public GameObject dropItem;
+    public float dropChance = 0.1f;
 
     private void Start()
     {
         _health = GetComponent<Health>();
         _animator = GetComponent<Animator>();
 
-        _health.OnDead += () =>
-        {
-            _animator.SetTrigger("Dead");
-        };
+        _health.OnDead += () => { _animator.SetTrigger("Dead"); };
     }
 
     private void Update()
     {
+        if (_health.isDead) return;
         Move();
     }
 
@@ -40,18 +37,18 @@ public class Enemy : MonoBehaviour
     {
         transform.Translate(Vector3.left * Time.deltaTime);
     }
-    
+
     protected virtual void Attack()
     {
-        
     }
-    
+
     public virtual void OnEnemyDead()
     {
         if (dropItem && dropChance >= Random.value)
         {
             Instantiate(dropItem, transform.position, Quaternion.identity);
         }
+
         Destroy(gameObject);
     }
 

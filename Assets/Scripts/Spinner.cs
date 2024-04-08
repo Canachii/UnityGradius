@@ -6,6 +6,6 @@ public class Spinner : Enemy
     public float speed = 5f;
     protected override void Move()
     {
-        base.Move();
+        transform.Translate(Vector3.left * Time.deltaTime * speed);
     }
 }

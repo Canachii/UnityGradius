@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dfd9cd9cc4010a649a8eafc0d9c81578
+guid: db5ec398791a5934b83ab54d5f156b09
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -119,17 +119,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NES - Gradius - Background Tiles_0
+      name: NES - Gradius - HUD_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 36
-        width: 56
-        height: 76
+        x: 0
+        y: 18
+        width: 31
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +150,251 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41905e92264cb74c8c80dfcddef5f5e
-      internalID: 819511288
+      spriteID: 34912bb7c31f7c346983643423e4d0f3
+      internalID: -1213333561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NES - Gradius - Background Tiles_1
+      name: NES - Gradius - HUD_1
       rect:
         serializedVersion: 2
-        x: 171
+        x: 32
+        y: 18
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d10ec4518bfaaf478baa24a70445930
+      internalID: 295581922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 18
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b489067e7dad44a45a4ae1bc4a87fc82
+      internalID: -325489315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 18
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd43c7e527d4914997a293fe8d4f5c0
+      internalID: 869640509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 18
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63dcf1a2fe13d434eb6d0162efd4514a
+      internalID: 1021881273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 18
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568921c289264594db1a7a2c987416d2
+      internalID: 724786801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3bee28d403e75340a45181b2557f48f
+      internalID: 70255892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 9
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6920333c4453334429a31213cd79c868
+      internalID: 746215004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 9
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fee1d4c61e877d44906c3f5c6d7f078
+      internalID: -151273837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 9
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ef1b3c5fd7d35a4dbd2d48d40533556
+      internalID: 498599223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 9
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b0b1e99f3b3d34289c240c35c0b5c0
+      internalID: 922235573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 9
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b0f9c02fcc5d44d8644b7bfa74fb24
+      internalID: 270053951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD_12
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
-        width: 64
-        height: 51
+        width: 31
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,134 +402,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba4d1346a05569c45952f39978183a1d
-      internalID: -1227857294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Gradius - Background Tiles_3
-      rect:
-        serializedVersion: 2
-        x: 337
-        y: 1
-        width: 96
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59c80ef47e2ac7e4eb0e0e6ea23e49e2
-      internalID: -454064897
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Gradius - Background Tiles_4
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 17
-        width: 32
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56c3ec7c7d002ac43ac0ad4918450477
-      internalID: -1856362504
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Gradius - Background Tiles_5
-      rect:
-        serializedVersion: 2
-        x: 121
-        y: 0
-        width: 48
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5386ceba28a5e3242b4f00a43dacaf4e
-      internalID: 1079322285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Gradius - Background Tiles_6
-      rect:
-        serializedVersion: 2
-        x: 237
-        y: 0
-        width: 96
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1612ffa7f18bb994f9c201e461925c2b
-      internalID: 1979817187
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Gradius - Background Tiles_7
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 0
-        width: 64
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 997e7d27d9f77b9498feff96e46574b8
-      internalID: -1825744223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Gradius - Background Tiles_8
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 0
-        width: 48
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1fe10fa4221024647b80447eebe66767
-      internalID: -551935800
+      spriteID: 52ab2f29a9ee82840a3af810f13e7b45
+      internalID: 853062796
       vertices: []
       indices: 
       edges: []
@@ -301,15 +419,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      NES - Gradius - Background Tiles_0: 819511288
-      NES - Gradius - Background Tiles_1: -1227857294
-      NES - Gradius - Background Tiles_2: -726364078
-      NES - Gradius - Background Tiles_3: -454064897
-      NES - Gradius - Background Tiles_4: -1856362504
-      NES - Gradius - Background Tiles_5: 1079322285
-      NES - Gradius - Background Tiles_6: 1979817187
-      NES - Gradius - Background Tiles_7: -1825744223
-      NES - Gradius - Background Tiles_8: -551935800
+      NES - Gradius - HUD_0: -1213333561
+      NES - Gradius - HUD_1: 295581922
+      NES - Gradius - HUD_10: 922235573
+      NES - Gradius - HUD_11: 270053951
+      NES - Gradius - HUD_12: 853062796
+      NES - Gradius - HUD_2: -325489315
+      NES - Gradius - HUD_3: 869640509
+      NES - Gradius - HUD_4: 1021881273
+      NES - Gradius - HUD_5: 724786801
+      NES - Gradius - HUD_6: 70255892
+      NES - Gradius - HUD_7: 746215004
+      NES - Gradius - HUD_8: -151273837
+      NES - Gradius - HUD_9: 498599223
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
