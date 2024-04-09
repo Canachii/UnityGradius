@@ -1,25 +1,26 @@
-﻿using System;
-using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
     private Health _health;
-    private Animator _animator;
+    protected Animator Animator;
 
     [Header("Drop")] public GameObject dropItem;
     public float dropChance = 0.1f;
+    
+    [Header("Spec")]
+    public float speed = 5f;
 
-    private void Start()
+    protected virtual void Start()
     {
         _health = GetComponent<Health>();
-        _animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
 
-        _health.OnDead += () => { _animator.SetTrigger("Dead"); };
+        _health.OnDead += () => { Animator.SetTrigger("Dead"); };
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (_health.isDead) return;
         Move();
@@ -35,14 +36,10 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Move()
     {
-        transform.Translate(Vector3.left * Time.deltaTime);
+        transform.Translate(Vector3.left * Time.deltaTime * speed);
     }
 
-    protected virtual void Attack()
-    {
-    }
-
-    public virtual void OnEnemyDead()
+    public void OnEnemyDead()
     {
         if (dropItem && dropChance >= Random.value)
         {

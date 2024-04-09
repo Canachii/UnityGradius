@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(data.dir.normalized * data.speed * Time.deltaTime);
+        transform.Translate(data.direction.normalized * data.speed * Time.deltaTime);
     }
 
     private void OnBecameInvisible()
@@ -24,13 +23,18 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(data.colliderTag))
+        if (other.CompareTag(data.colliderTag) && data.penetrate)
         {
             other.GetComponent<Health>().TakeDamage(data.damage);
-            if (!data.penetrate)
-            {
-                Destroy(gameObject);
-            }
+        }
+        else if (other.CompareTag(data.colliderTag) && !data.penetrate)
+        {
+            other.GetComponent<Health>().TakeDamage(data.damage);
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Untagged"))
+        {
+            Destroy(gameObject);
         }
     }
 }

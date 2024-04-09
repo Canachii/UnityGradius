@@ -7,6 +7,6 @@ public class ProjectileData : ScriptableObject
     public int damage = 1;
     public float speed = 10f;
     public string colliderTag = "Enemy";
-    public Vector2 dir = Vector2.right;
+    public Vector2 direction = Vector2.right;
     public bool penetrate;
 }

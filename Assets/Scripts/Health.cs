@@ -1,23 +1,32 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class Health : MonoBehaviour
 {
     [HideInInspector] public bool isDead;
-    public int health = 1;
+    public int maxHealth = 1;
+    [HideInInspector] public int health = 1;
 
     public Action OnDead;
 
     private Collider2D _collider;
-    private Rigidbody2D _rigidbody;
+    private SpriteRenderer _sprite;
+
+    public void Reset()
+    {
+        isDead = false;
+        health = maxHealth;
+        StartCoroutine("Blink");
+    }
 
     private void Start()
     {
         isDead = false;
+        health = maxHealth;
         _collider = GetComponent<Collider2D>();
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.bodyType = RigidbodyType2D.Kinematic;
+        _sprite = GetComponent<SpriteRenderer>();
     }
 
     public void TakeDamage(int value)
@@ -29,5 +38,20 @@ public class Health : MonoBehaviour
             isDead = true;
             OnDead?.Invoke();
         }
+    }
+    
+    private IEnumerator Blink()
+    {
+        const int time = 5;
+        
+        for (int i = 0; i < time; i++)
+        {
+            _sprite.color = Color.clear;
+            yield return new WaitForSeconds(1f / (time * 2));
+            _sprite.color = new Color(1f, 1f, 1f, 0.5f);
+            yield return new WaitForSeconds(1f / (time * 2));
+        }
+        _sprite.color = Color.white;
+        _collider.enabled = true;
     }
 }

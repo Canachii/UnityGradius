@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Picked up item");
+            GameManager.Instance.AddPower();
             Destroy(gameObject);
         }
     }

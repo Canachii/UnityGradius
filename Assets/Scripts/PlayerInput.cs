@@ -7,36 +7,40 @@ public class PlayerInput : MonoBehaviour
     [HideInInspector] public bool isAttack;
 
     public KeyCode attack = KeyCode.J;
+    public KeyCode power = KeyCode.K;
 
-    private float _pressTime;
-    private const float AttackRate = 0.1f;
+    [Header("Cheat")] public bool cheat = false;
+    public KeyCode cheatPower = KeyCode.Keypad0;
+
+    private float _pressBuffer;
+    private const float AttackRate = 0.5f;
 
     // Update is called once per frame
     void Update()
     {
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
-        if (Input.GetKey(attack))
+        if (Input.GetKey(attack) && _pressBuffer >= AttackRate)
         {
-            if (_pressTime == 0)
-            {
-                isAttack = true;
-            }
-
-            if (_pressTime > 0)
-            {
-                isAttack = false;
-                if (_pressTime >= AttackRate)
-                {
-                    _pressTime = 0;
-                }
-            }
-
-            _pressTime += Time.deltaTime;
+            isAttack = true;
+            _pressBuffer = 0;
         }
         else
         {
-            _pressTime = 0;
+            isAttack = false;
+            _pressBuffer += Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(power))
+        {
+            GameManager.Instance.SetPower();
+        }
+        
+        // Cheat
+        if (!cheat) return;
+        if (Input.GetKeyDown(cheatPower))
+        {
+            GameManager.Instance.AddPower();
         }
     }
 }
