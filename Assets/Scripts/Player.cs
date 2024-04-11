@@ -99,6 +99,7 @@ public class Player : MonoBehaviour
                 break;
             case Power.Option:
                 var temp = Instantiate(option, transform.position, Quaternion.identity);
+                // TODO - Add option
                 break;
             case Power.Shield:
                 Instantiate(shield, transform);
