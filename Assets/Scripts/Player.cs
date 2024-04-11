@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public GameObject option;
     public GameObject shield;
     public ProjectileData bullet;
+    public ProjectileData diagonal;
     public ProjectileData laser;
     public GameObject projectile;
 
@@ -42,13 +43,20 @@ public class Player : MonoBehaviour
     {
         if (_health.isDead) return;
 
+        Attack();
+
+        _animator.SetFloat("Vertical", _input.y);
+    }
+
+    private void Attack()
+    {
         if (_input.isAttack && projectile && _double)
         {
+            var temp = new GameObject[2]; 
             for (int i = 0; i < 2; i++)
             {
-                // TODO - Fix double
-                var temp = Instantiate(projectile, transform.position, Quaternion.identity);
-                temp.GetComponent<Projectile>().data = _laser ? laser : bullet;
+                temp[i] = Instantiate(projectile, transform.position, Quaternion.identity);
+                temp[i].GetComponent<Projectile>().data = i == 0 ? bullet : diagonal;
             }
         }
         else if (_input.isAttack && projectile)
@@ -59,10 +67,8 @@ public class Player : MonoBehaviour
 
         if (_input.isAttack && _missile)
         {
-            
+            Instantiate(missile, transform.position, Quaternion.identity);
         }
-
-        _animator.SetFloat("Vertical", _input.y);
     }
 
     private void FixedUpdate()
