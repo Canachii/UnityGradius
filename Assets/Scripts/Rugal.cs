@@ -2,29 +2,37 @@
 
 public class Rugal : Enemy
 {
-    public float yRange = 2f;
-    private float _tick;
-    private float _yPosition;
+    private int _y;
+    private Player _player;
 
     protected override void Start()
     {
         base.Start();
-        _yPosition = transform.position.y;
+        _player = FindObjectOfType<Player>();
     }
 
     protected override void Update()
     {
         base.Update();
-        
-        _tick += Time.deltaTime;
-        var y = Mathf.Sin(_tick * speed) * yRange;
-        Animator.SetFloat("Vertical", y - _yPosition);
-        _yPosition = y;
+
+        const float y = 0.1f;
+
+        if (transform.position.y + y < _player.transform.position.y)
+        {
+            _y = 1;
+        }
+        else if (transform.position.y - y > _player.transform.position.y)
+        {
+            _y = -1;
+        }
+        else _y = 0;
+
+        Animator.SetFloat("Vertical", _y);
     }
 
     protected override void Move()
     {
         base.Move();
-        transform.position = new Vector3(transform.position.x, _yPosition);
+        transform.Translate(Vector3.up * speed * _y * Time.deltaTime);
     }
 }

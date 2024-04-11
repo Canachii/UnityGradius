@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5a8420d3bc84990af6b2ab1105cf72e, type: 3}
-  m_Name: Player_Bullet
+  m_Name: Player_Bullet 1
   m_EditorClassIdentifier: 
   sprite: {fileID: -107334103, guid: 05b65fa15933fd0489f9fa9e0e384e6f, type: 3}
   damage: 1

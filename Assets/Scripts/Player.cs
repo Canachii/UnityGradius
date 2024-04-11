@@ -57,6 +57,11 @@ public class Player : MonoBehaviour
             temp.GetComponent<Projectile>().data = _laser ? laser : bullet;
         }
 
+        if (_input.isAttack && _missile)
+        {
+            
+        }
+
         _animator.SetFloat("Vertical", _input.y);
     }
 
