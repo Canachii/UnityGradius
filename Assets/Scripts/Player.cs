@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerInput), typeof(PlayerMove), typeof(Health))]
 public class Player : MonoBehaviour
 {
     public GameObject missile;
+    public GameObject bullet1;
+    public GameObject bullet2;
+    public GameObject laser;
     public GameObject option;
     public GameObject shield;
-    public ProjectileData bullet;
-    public ProjectileData diagonal;
-    public ProjectileData laser;
-    public GameObject projectile;
 
     private PlayerInput _input;
     private PlayerMove _move;
@@ -31,6 +31,23 @@ public class Player : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
 
         _health.OnDead += () => { _animator.SetBool("Dead", true); };
+
+        NewPower();
+    }
+
+    private void NewPower()
+    {
+        missile = Instantiate(missile);
+        bullet1 = Instantiate(bullet1);
+        bullet2 = Instantiate(bullet2);
+        laser = Instantiate(laser);
+        shield = Instantiate(shield, transform, false);
+
+        missile.SetActive(false);
+        bullet1.SetActive(false);
+        bullet2.SetActive(false);
+        laser.SetActive(false);
+        shield.SetActive(false);
     }
 
     public void OnPlayerDead()
@@ -50,24 +67,29 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
-        if (_input.isAttack && projectile && _double)
+        if (!_input.isAttack) return;
+        if (!bullet1.activeSelf)
         {
-            var temp = new GameObject[2]; 
-            for (int i = 0; i < 2; i++)
-            {
-                temp[i] = Instantiate(projectile, transform.position, Quaternion.identity);
-                temp[i].GetComponent<Projectile>().data = i == 0 ? bullet : diagonal;
-            }
-        }
-        else if (_input.isAttack && projectile)
-        {
-            var temp = Instantiate(projectile, transform.position, Quaternion.identity);
-            temp.GetComponent<Projectile>().data = _laser ? laser : bullet;
+            bullet1.SetActive(true);
+            bullet1.transform.position = transform.position;
         }
 
-        if (_input.isAttack && _missile)
+        if (!missile.activeSelf && _missile)
         {
-            Instantiate(missile, transform.position, Quaternion.identity);
+            missile.SetActive(true);
+            missile.transform.position = transform.position;
+        }
+
+        if (!bullet2.activeSelf && _double)
+        {
+            bullet2.SetActive(true);
+            bullet2.transform.position = transform.position;
+        }
+
+        if (!laser.activeSelf && _laser)
+        {
+            bullet2.SetActive(true);
+            bullet2.transform.position = transform.position;
         }
     }
 
@@ -97,23 +119,24 @@ public class Player : MonoBehaviour
                 break;
             case Power.Speed:
                 if (_move.speed >= PlayerMove.MaxSpeed) return;
-                _move.speed++;
+                _move.speed += 0.5f;
                 break;
             case Power.Missile:
                 _missile = true;
                 break;
             case Power.Double:
                 _double = true;
+                _laser = false;
                 break;
             case Power.Laser:
                 _laser = true;
+                _double = false;
                 break;
             case Power.Option:
-                var temp = Instantiate(option, transform.position, Quaternion.identity);
-                // TODO - Add option
+                Instantiate(option, transform.position, Quaternion.identity);
                 break;
             case Power.Shield:
-                Instantiate(shield, transform);
+                shield.SetActive(true);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(power), power, null);

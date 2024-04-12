@@ -1,40 +1,35 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class Projectile : MonoBehaviour
 {
-    public ProjectileData data;
-    private SpriteRenderer _sprite;
+    public float speed = 10;
+    public Vector2 direction = Vector2.right;
+    public string target = "Enemy";
+    public bool penetrate;
 
-    private void Start()
+    protected virtual void Update()
     {
-        _sprite = GetComponent<SpriteRenderer>();
-        _sprite.sprite = data.sprite;
+        transform.Translate(direction.normalized * speed * Time.deltaTime);
     }
 
-    private void Update()
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        transform.Translate(data.direction.normalized * data.speed * Time.deltaTime);
+        if (other.CompareTag(target) && other.GetComponent<Health>())
+        {
+            other.GetComponent<Health>().TakeDamage(1);
+            gameObject.SetActive(penetrate);
+        }
+
+        if (other.CompareTag("Untagged"))
+        {
+            gameObject.SetActive(penetrate);
+        }
     }
 
     private void OnBecameInvisible()
     {
-        Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag(data.colliderTag) && data.penetrate)
-        {
-            other.GetComponent<Health>().TakeDamage(data.damage);
-        }
-        else if (other.CompareTag(data.colliderTag) && !data.penetrate)
-        {
-            other.GetComponent<Health>().TakeDamage(data.damage);
-            Destroy(gameObject);
-        }
-        else if (other.CompareTag("Untagged"))
-        {
-            Destroy(gameObject);
-        }
+        gameObject.SetActive(false);
     }
 }

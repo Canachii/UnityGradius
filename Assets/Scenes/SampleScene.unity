@@ -771,13 +771,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0acc717d5ae94aca8502f926e3a35384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missile: {fileID: 0}
-  option: {fileID: 0}
-  shield: {fileID: 0}
-  bullet: {fileID: 11400000, guid: 3e5719fbc8f4b22408a1ac3aaa447bfe, type: 2}
-  diagonal: {fileID: 0}
-  laser: {fileID: 11400000, guid: 134af209bd81a0744b7ac45eea7c59c6, type: 2}
-  projectile: {fileID: 8908516392533158230, guid: 09eef5d6589a3744aaa29e72a802bc2c, type: 3}
+  missile: {fileID: 2821417204838335793, guid: 095fe82347e1fef4c9e7d5192fd83129, type: 3}
+  bullet1: {fileID: 3858479520044431862, guid: 85a020830cf97a8448a4c5dfb8b9990a, type: 3}
+  bullet2: {fileID: 2437883849361809963, guid: 86cdbe9f203dc824dbdec85267cf279b, type: 3}
+  laser: {fileID: 2345402648308106341, guid: 6f15cbd8d20052b4ea68025d15e45fb8, type: 3}
+  option: {fileID: 2535015681970625157, guid: 839c83ddfb6ceb94abc5c9d1255763bc, type: 3}
+  shield: {fileID: 2130549413440772816, guid: ca4e80c05f491dd4f9ba598f0ebe1f75, type: 3}
 --- !u!114 &950601284
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,24 +12,12 @@ public class PlayerInput : MonoBehaviour
     [Header("Cheat")] public bool cheat;
     public KeyCode cheatPower = KeyCode.Alpha0;
 
-    private float _pressBuffer;
-    private const float AttackRate = 0.5f;
-
     // Update is called once per frame
     void Update()
     {
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
-        if (Input.GetKey(attack) && _pressBuffer >= AttackRate)
-        {
-            isAttack = true;
-            _pressBuffer = 0;
-        }
-        else
-        {
-            isAttack = false;
-            _pressBuffer += Time.deltaTime;
-        }
+        isAttack = Input.GetKey(attack);
 
         if (Input.GetKeyDown(power))
         {

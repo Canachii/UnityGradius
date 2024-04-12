@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     private const float MaxY = 4f;
     private const float Offset = 0.5f;
     
-    public const float MaxSpeed = 5f;
+    public const float MaxSpeed = 5.5f;
     public float speed = 3f;
 
     private Rigidbody2D _rigidbody;
