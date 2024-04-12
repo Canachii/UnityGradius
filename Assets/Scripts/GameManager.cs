@@ -118,4 +118,21 @@ public class GameManager : MonoBehaviour
         _currentPower = Power.None;
         SetPowerUI();
     }
+
+    public int WherePlayerVertical(Vector2 position)
+    {
+        const float y = 0.1f;
+
+        if (position.y + y < _player.transform.position.y)
+        {
+            return 1;
+        }
+        
+        if (position.y - y > _player.transform.position.y)
+        {
+            return -1;
+        }
+
+        return 0;
+    }
 }

@@ -2,6 +2,8 @@
 
 public class Rugal : Enemy
 {
+    public float dashSpeed = 2f;
+    
     private int _y;
     private Player _player;
 
@@ -14,25 +16,14 @@ public class Rugal : Enemy
     protected override void Update()
     {
         base.Update();
+        _y = GameManager.Instance.WherePlayerVertical(transform.position);
 
-        const float y = 0.1f;
-
-        if (transform.position.y + y < _player.transform.position.y)
-        {
-            _y = 1;
-        }
-        else if (transform.position.y - y > _player.transform.position.y)
-        {
-            _y = -1;
-        }
-        else _y = 0;
-
+        dashSpeed = _y == 0 ? 2f : 0f;
         Animator.SetFloat("Vertical", _y);
     }
 
     protected override void Move()
     {
-        base.Move();
-        transform.Translate(Vector3.up * speed * _y * Time.deltaTime);
+        transform.Translate(new Vector3(-speed - dashSpeed, speed * _y) * Time.deltaTime);
     }
 }

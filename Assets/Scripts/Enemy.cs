@@ -3,7 +3,7 @@
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
-    private Health _health;
+    protected Health Health;
     protected Animator Animator;
 
     [Header("Drop")] public GameObject dropItem;
@@ -14,15 +14,15 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        _health = GetComponent<Health>();
+        Health = GetComponent<Health>();
         Animator = GetComponent<Animator>();
 
-        _health.OnDead += () => { Animator.SetTrigger("Dead"); };
+        Health.OnDead += () => { Animator.SetTrigger("Dead"); };
     }
 
     protected virtual void Update()
     {
-        if (_health.isDead) return;
+        if (Health.isDead) return;
         Move();
     }
 

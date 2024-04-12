@@ -775,6 +775,7 @@ MonoBehaviour:
   option: {fileID: 0}
   shield: {fileID: 0}
   bullet: {fileID: 11400000, guid: 3e5719fbc8f4b22408a1ac3aaa447bfe, type: 2}
+  diagonal: {fileID: 0}
   laser: {fileID: 11400000, guid: 134af209bd81a0744b7ac45eea7c59c6, type: 2}
   projectile: {fileID: 8908516392533158230, guid: 09eef5d6589a3744aaa29e72a802bc2c, type: 3}
 --- !u!114 &950601284
@@ -808,7 +809,7 @@ MonoBehaviour:
   attack: 106
   power: 107
   cheat: 1
-  cheatPower: 256
+  cheatPower: 48
 --- !u!114 &950601286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,6 +1248,58 @@ Transform:
   - {fileID: 209667843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1506390469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1506390471}
+  - component: {fileID: 1506390470}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1506390470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506390469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08af2802027faa04e92c4b0bc8cc1c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  file: {fileID: 4900000, guid: ddb9f49570da43daa66d7ed5e129032e, type: 3}
+  enemyData:
+  - name: Fan
+    prefab: {fileID: 1919850869365506275, guid: 315e8fe4eb4c3fb4989c308a93ce12fa, type: 3}
+  - name: Rugal
+    prefab: {fileID: 174710053652138481, guid: e2591046c3f1c48419002aa3eb375175, type: 3}
+  - name: Garun
+    prefab: {fileID: 8424928714291708492, guid: 8a808580c13af5e4487bc8bf3b13b2b1, type: 3}
+--- !u!4 &1506390471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506390469}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1535010478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,3 +1699,4 @@ SceneRoots:
   - {fileID: 264904162}
   - {fileID: 1415298155}
   - {fileID: 1918725030}
+  - {fileID: 1506390471}

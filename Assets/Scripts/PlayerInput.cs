@@ -9,8 +9,8 @@ public class PlayerInput : MonoBehaviour
     public KeyCode attack = KeyCode.J;
     public KeyCode power = KeyCode.K;
 
-    [Header("Cheat")] public bool cheat = false;
-    public KeyCode cheatPower = KeyCode.Keypad0;
+    [Header("Cheat")] public bool cheat;
+    public KeyCode cheatPower = KeyCode.Alpha0;
 
     private float _pressBuffer;
     private const float AttackRate = 0.5f;
