@@ -79,7 +79,6 @@ public class GameManager : MonoBehaviour
                 _bgm = temp.AddComponent<AudioSource>();
                 _bgm.loop = true;
                 _bgm.playOnAwake = true;
-                _bgm.volume = 0.5f;
             }
             else
             {
