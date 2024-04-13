@@ -30,7 +30,11 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
 
-        _health.OnDead += () => { _animator.SetBool("Dead", true); };
+        _health.OnDead += () =>
+        {
+            _animator.SetBool("Dead", true);
+            GameManager.Instance.PlaySFX("Dead");
+        };
 
         NewPower();
     }
@@ -68,10 +72,11 @@ public class Player : MonoBehaviour
     private void Attack()
     {
         if (!_input.isAttack) return;
-        if (!bullet1.activeSelf)
+        if (!bullet1.activeSelf && !_laser)
         {
             bullet1.SetActive(true);
             bullet1.transform.position = transform.position;
+            GameManager.Instance.PlaySFX("Shoot");
         }
 
         if (!missile.activeSelf && _missile)
@@ -90,6 +95,7 @@ public class Player : MonoBehaviour
         {
             bullet2.SetActive(true);
             bullet2.transform.position = transform.position;
+            GameManager.Instance.PlaySFX("Laser");
         }
     }
 

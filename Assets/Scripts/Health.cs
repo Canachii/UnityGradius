@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
     }
 
-    public void TakeDamage(int value)
+    public void TakeDamage(int value = 1)
     {
         health -= value;
         if (health <= 0)

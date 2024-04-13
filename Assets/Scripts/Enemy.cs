@@ -17,7 +17,11 @@ public class Enemy : MonoBehaviour
         Health = GetComponent<Health>();
         Animator = GetComponent<Animator>();
 
-        Health.OnDead += () => { Animator.SetTrigger("Dead"); };
+        Health.OnDead += () =>
+        {
+            Animator.SetTrigger("Dead");
+            GameManager.Instance.PlaySFX("Destroy");
+        };
     }
 
     protected virtual void Update()

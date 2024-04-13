@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 public enum Power
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        CreateAudioSource();
     }
 
     private void Start()
@@ -57,7 +59,6 @@ public class GameManager : MonoBehaviour
             throw new System.NullReferenceException("Each lists length are not equal.");
         }
 
-        CreateAudioSource();
         _player = FindObjectOfType<Player>();
     }
 
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
                 _bgm = temp.AddComponent<AudioSource>();
                 _bgm.loop = true;
                 _bgm.playOnAwake = true;
+                _bgm.volume = 0.5f;
             }
             else
             {
@@ -95,6 +97,7 @@ public class GameManager : MonoBehaviour
 
     public void AddPower()
     {
+        PlaySFX("Item");
         if ((int)_currentPower < PowerCount() - 1)
         {
             _currentPower++;
@@ -113,6 +116,10 @@ public class GameManager : MonoBehaviour
 
     public void SetPower()
     {
+        if (_currentPower != Power.None)
+        {
+            PlaySFX("Use");
+        }
         _player.PowerUp(_currentPower);
         _currentPower = Power.None;
         SetPowerUI();
@@ -126,12 +133,37 @@ public class GameManager : MonoBehaviour
         {
             return 1;
         }
-        
+
         if (position.y - y > _player.transform.position.y)
         {
             return -1;
         }
 
         return 0;
+    }
+
+    public void PlaySFX(string name)
+    {
+        var newClip = (from i in sound where i.name == name select i.clip).FirstOrDefault();
+
+        if (newClip == null)
+        {
+            throw new System.NullReferenceException("Audio clip not found");
+        }
+        
+        _sfx.PlayOneShot(newClip);
+    }
+    
+    public void PlayBGM(string name)
+    {
+        var newClip = (from i in sound where i.name == name select i.clip).FirstOrDefault();
+
+        if (newClip == null)
+        {
+            throw new System.NullReferenceException("Audio clip not found");
+        }
+
+        _bgm.clip = newClip;
+        _bgm.Play();
     }
 }
