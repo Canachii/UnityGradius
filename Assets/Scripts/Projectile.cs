@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
 
         if (other.CompareTag("Untagged"))
         {
-            gameObject.SetActive(penetrate);
+            gameObject.SetActive(false);
         }
     }
 

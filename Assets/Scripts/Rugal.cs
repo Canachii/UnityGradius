@@ -17,13 +17,11 @@ public class Rugal : Enemy
     {
         base.Update();
         _y = GameManager.Instance.WherePlayerVertical(transform.position);
-
-        dashSpeed = _y == 0 ? 2f : 0f;
         Animator.SetFloat("Vertical", _y);
     }
 
     protected override void Move()
     {
-        transform.Translate(new Vector3(-speed - dashSpeed, speed * _y) * Time.deltaTime);
+        transform.Translate(new Vector3(-speed - (_y == 0 ? dashSpeed : 0f), 1f * _y) * Time.deltaTime);
     }
 }

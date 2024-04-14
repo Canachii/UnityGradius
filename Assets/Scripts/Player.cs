@@ -93,8 +93,8 @@ public class Player : MonoBehaviour
 
         if (!laser.activeSelf && _laser)
         {
-            bullet2.SetActive(true);
-            bullet2.transform.position = transform.position;
+            laser.SetActive(true);
+            laser.transform.position = transform.position;
             GameManager.Instance.PlaySFX("Laser");
         }
     }

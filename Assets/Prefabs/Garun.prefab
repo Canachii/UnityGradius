@@ -211,5 +211,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItem: {fileID: 410894074710289628, guid: 3c108cb51fdb92d4d9d147bc35552b2b, type: 3}
   dropChance: 0.1
-  speed: 5
-  yRange: 2
+  speed: 7
+  yRange: 1
