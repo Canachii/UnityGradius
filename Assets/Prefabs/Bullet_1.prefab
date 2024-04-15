@@ -143,5 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e915277d3ce84081898fa05dc2247464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 12
   direction: {x: 1, y: 0}
+  target: Enemy
+  penetrate: 0

@@ -5,6 +5,7 @@ public class Scroll : MonoBehaviour
 {
     public float scrollTime = 120f;
     public string BGMName = "BGM01";
+    public GameObject boss;
     
     private float _time = 0f;
     private Vector2 _start;
@@ -25,6 +26,12 @@ public class Scroll : MonoBehaviour
         if (_time >= scrollTime)
         {
             Background.IsScroll = false;
+            var enemy = FindObjectsOfType<Enemy>();
+            foreach (var item in enemy)
+            {
+                Destroy(item.gameObject);
+            }
+            if (boss) Instantiate(boss, Vector2.right * 4f, Quaternion.identity);
             Destroy(gameObject);
         }
         else

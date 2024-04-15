@@ -141,6 +141,11 @@ public class GameManager : MonoBehaviour
         return 0;
     }
 
+    public Vector2 AimPlayer(Vector2 position)
+    {
+        return new Vector2(_player.transform.position.x - position.x, _player.transform.position.y - position.y).normalized;
+    }
+
     public void PlaySFX(string name)
     {
         var newClip = (from i in sound where i.name == name select i.clip).FirstOrDefault();

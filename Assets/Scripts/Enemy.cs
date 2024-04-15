@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector3.left * Time.deltaTime * speed);
     }
 
-    public void OnEnemyDead()
+    public virtual void OnEnemyDead()
     {
         if (dropItem && dropChance >= Random.value)
         {

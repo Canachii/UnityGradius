@@ -32,14 +32,25 @@ public class Health : MonoBehaviour
     public void TakeDamage(int value = 1)
     {
         health -= value;
-        if (health <= 0)
+        if (health > 0)
+        {
+            StartCoroutine("Hit");
+        }
+        else if (health <= 0)
         {
             _collider.enabled = false;
             isDead = true;
             OnDead?.Invoke();
         }
     }
-    
+
+    private IEnumerator Hit()
+    {
+        _sprite.color = Color.clear;
+        yield return new WaitForSeconds(0.1f);
+        _sprite.color = Color.white;
+    }
+
     private IEnumerator Blink()
     {
         const int time = 5;

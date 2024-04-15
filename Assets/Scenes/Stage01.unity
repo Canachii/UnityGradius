@@ -1614,7 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316ecb0f01904344b2fd75a266da4254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.173
 --- !u!1001 &295944478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5421,7 +5421,7 @@ Transform:
   m_GameObject: {fileID: 950601278}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.4, y: 0, z: 0}
+  m_LocalPosition: {x: -4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6883,6 +6883,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1783816477674402023, guid: 90ffd629386c1d249aaf92b8d9383a1c, type: 3}
   m_PrefabInstance: {fileID: 1243619109}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1278146105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1278146107}
+  - component: {fileID: 1278146106}
+  m_Layer: 0
+  m_Name: EnemySpawner_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1278146106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278146105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08af2802027faa04e92c4b0bc8cc1c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  file: {fileID: 4900000, guid: e1b28a0c577f4fd4d81f4aa974ce3f94, type: 3}
+  enemyData:
+  - name: Ducker
+    prefab: {fileID: 2140362791938695482, guid: 2f095ec6f6f73a14bbf1bec4159d10f3, type: 3}
+--- !u!4 &1278146107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278146105}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1279699575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7798,6 +7846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollTime: 90
   BGMName: BGM01
+  boss: {fileID: 7091601539242737578, guid: 6516765d754412c45b180825f9455a5e, type: 3}
 --- !u!1001 &1438361288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8091,6 +8140,8 @@ MonoBehaviour:
     prefab: {fileID: 174710053652138481, guid: e2591046c3f1c48419002aa3eb375175, type: 3}
   - name: Garun
     prefab: {fileID: 8424928714291708492, guid: 8a808580c13af5e4487bc8bf3b13b2b1, type: 3}
+  - name: Jumper
+    prefab: {fileID: 1730164489227833617, guid: 58bfce1b2a9ca064f82797f5ff07baf1, type: 3}
 --- !u!4 &1506390471
 Transform:
   m_ObjectHideFlags: 0
@@ -11308,4 +11359,5 @@ SceneRoots:
   - {fileID: 1415298155}
   - {fileID: 1918725030}
   - {fileID: 1506390471}
+  - {fileID: 1278146107}
   - {fileID: 277179794}

@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
     {
         _animator.SetBool("Dead", false);
         _health.Reset();
-        transform.position = Vector3.left * 6.4f;
+        transform.position = Vector3.left * 4f;
     }
 
     public void PowerUp(Power power)
@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
                 _double = false;
                 break;
             case Power.Option:
-                Instantiate(option, transform.position, Quaternion.identity);
+                //Instantiate(option, transform.position, Quaternion.identity);
                 break;
             case Power.Shield:
                 shield.SetActive(true);
